@@ -561,8 +561,8 @@
   <!-- ═══ HISTORY -->
   <section class="panel history">
     <div class="tabs">
-      <button class="tab-btn active" data-hist="mine">Your Bets</button>
-      <button class="tab-btn" data-hist="feed">Live Feed</button>
+      <button class="tab-btn" data-hist="mine">Your Bets</button>
+      <button class="tab-btn active" data-hist="feed">Live Feed</button>
     </div>
     <table>
       <thead><tr><th>#</th><th>Roll</th><th>Target</th><th>Bet (OTR)</th><th>Payout (OTR)</th><th>Profit (OTR)</th><th>Result</th><th>Tx</th></tr></thead>
@@ -763,7 +763,7 @@ const BPS_DENOM = 10000n;
 let provider, signer, userAddress;
 let diceContract, diceContractRO, tokenContract;
 let tokenDecimals = 18, tokenSymbol = 'OTR';
-let currentHistTab = 'mine';
+let currentHistTab = 'feed';
 let myHistory = [];
 let liveConfig = { minBet:0n, maxBet:0n, houseEdgeBps:100, minChanceBps:100, maxChanceBps:9500, currentPayoutCap:0n, freeBankroll:0n };
 
@@ -1655,6 +1655,7 @@ setGauge(50);
 document.getElementById('footerContract').textContent = short(CONFIG.CONTRACT_ADDRESS);
 refreshConfig();
 subscribeLiveBankroll();
+renderLiveFeed(); // Live Feed is the default tab — populate it immediately, no wallet connection needed
 </script>
 </body>
 </html>
