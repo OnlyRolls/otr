@@ -182,6 +182,9 @@
     background:linear-gradient(180deg,var(--panel),var(--panel-2));
     border:1px solid var(--line);border-radius:var(--radius);
     box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,0.03);position:relative;
+    min-width:0; /* grid items default to min-width:auto, which refuses to
+      shrink below content's natural width even when the grid track is
+      narrower — this is what was overflowing the .console grid on mobile */
   }
   .rivets{position:absolute;inset:0;pointer-events:none;}
   .rivets span{
